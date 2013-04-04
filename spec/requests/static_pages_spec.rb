@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+
   subject { page }
 
   shared_examples_for "all static pages" do
@@ -42,7 +43,7 @@ describe "Static pages" do
     it_should_behave_like "all static pages"
   end
    
-   it "should have the right links on the layout" do
+    it "should have the right links on the layout" do
     visit root_path
     click_link "About"
     page.should have_selector 'title', text: full_title('About Us')
@@ -54,6 +55,7 @@ describe "Static pages" do
     click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign Up')
     click_link "sample app"
-    page.should have selector 'h1',    text: full_title
+    page.should have_selector 'title', text: full_title('')
+   
   end
 end
