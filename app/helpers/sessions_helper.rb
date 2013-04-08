@@ -9,7 +9,12 @@ module SessionsHelper
 		@current_user = user
 	end
 
-	
+	def current_user
+		if cookies[:remember_token] = nil
+		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
+	end 
+end
+
 	def signedin?
 		!current_user.nil?
 	end
