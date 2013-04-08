@@ -1,15 +1,12 @@
 require 'spec_helper'
 
-describe "UserPages" do
-  
-  subject {page}
+describe "User pages" do
+
+  subject { page }
 
   describe "signup page" do
-	 before { visit signup_path }
+    before { visit signup_path }
 
-	 it { should have_selector('h1', text: 'Sign Up' ) }
-	 it { should have_selector('title', text: full_title('Sign Up')  }
-end
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -19,7 +16,7 @@ end
     it { should have_selector('title', text: user.name) }
   end
 
- describe "signup" do
+  describe "signup" do
 
     before { visit signup_path }
 
@@ -44,4 +41,5 @@ end
       end
     end
   end
+end
 end
