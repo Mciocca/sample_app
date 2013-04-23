@@ -21,7 +21,9 @@ describe User do
   
     
   subject { @user }
-
+  
+  it {should respond_to(:relationships) }
+  it {should respond_to(:followed_users) }
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
@@ -118,6 +120,8 @@ describe User do
     before {@user.save}
     its(:remember_token) {should_not be_blank}
 end
+
+
 
 end 	
  
